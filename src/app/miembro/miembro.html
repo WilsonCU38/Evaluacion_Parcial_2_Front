@@ -1,0 +1,80 @@
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <i class="bi bi-people-fill left-text me-2"></i>
+            Listado de Miembros
+        </h5>
+        <div>
+            <button class="btn btn-outline-light btn-sm me-2" routerLink="/">
+                <i class="bi bi-arrow-left"></i>
+                Regresar
+            </button>
+            <button type="button" class="btn btn-light btn-sm" routerLink="/miembro/create">
+                <i class="bi bi-plus-lg"></i>
+                Nuevo Miembro
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped mb-0 align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width: 10%">Id</th>
+                        <th style="width: 20%">Nombre</th>
+                        <th style="width: 20%">Apellido</th>
+                        <th style="width: 20%">Fecha Nacimiento</th>
+                        <th style="width: 20%">Membresía</th>
+                        <th style="width: 10%" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (miembros.length > 0) {
+                    @for (miembro of miembros; track miembro.miembroId) {
+                    <tr>
+                        <td class="text-muted">
+                            {{ miembro.miembroId }}
+                        </td>
+                        <td class="fw-bold">
+                            {{ miembro.nombre }}
+                        </td>
+                        <td>
+                            {{ miembro.apellido }}
+                        </td>
+                        <td>
+                            <span class="badge bg-info text-dark">
+                                {{ miembro.fechaNacimiento | date:'dd/MM/yyyy' }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-secondary">
+                                {{ miembro.tipoMembresia }}
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-warning btn-sm" title="Editar"
+                                    [routerLink]="['/miembro/edit', miembro.miembroId]">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" title="Eliminar"
+                                    (click)="eliminar(miembro.miembroId!)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    } @else {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            <i class="bi bi-inbox display-6 d-block mb-2"></i>
+                            No hay miembros registrados.
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

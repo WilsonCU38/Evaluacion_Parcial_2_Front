@@ -1,0 +1,87 @@
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <i class="bi bi-person-badge me-2"></i>
+            Listado de Entrenadores
+        </h5>
+        <div>
+            <button class="btn btn-outline-light btn-sm me-2" routerLink="/">
+                <i class="bi bi-arrow-left"></i>
+                Regresar
+            </button>
+            <button
+                type="button"
+                class="btn btn-light btn-sm"
+                routerLink="/entrenador/create">
+                <i class="bi bi-plus-lg"></i>
+                Nuevo Entrenador
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped mb-0 align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width: 10%">Id</th>
+                        <th style="width: 25%">Nombre</th>
+                        <th style="width: 25%">Especialidad</th>
+                        <th style="width: 20%">Teléfono</th>
+                        <th style="width: 20%">Email</th>
+                        <th style="width: 10%" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (entrenadores.length > 0) {
+                    @for (entrenador of entrenadores; track entrenador.entrenadorId) {
+                    <tr>
+                        <td class="text-muted">
+                            {{ entrenador.entrenadorId }}
+                        </td>
+                        <td class="fw-bold">
+                            {{ entrenador.nombre }}
+                        </td>
+                        <td>
+                            <span class="badge bg-info text-dark">
+                                {{ entrenador.especialidad }}
+                            </span>
+                        </td>
+                        <td>
+                            {{ entrenador.telefono }}
+                        </td>
+                        <td>
+                            {{ entrenador.email }}
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-warning btn-sm"
+                                    title="Editar"
+                                    [routerLink]="['/entrenador/edit', entrenador.entrenadorId]">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-danger btn-sm"
+                                    title="Eliminar"
+                                    (click)="eliminar(entrenador.entrenadorId!)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    } @else {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            <i class="bi bi-inbox display-6 d-block mb-2"></i>
+                            No hay entrenadores registrados.
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

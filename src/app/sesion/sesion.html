@@ -1,0 +1,78 @@
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <i class="bi bi-calendar-check me-2"></i>
+            Listado de Sesiones
+        </h5>
+        <div>
+            <button class="btn btn-outline-light btn-sm me-2" routerLink="/">
+                <i class="bi bi-arrow-left"></i>
+                Regresar
+            </button>
+            <button type="button" class="btn btn-light btn-sm" routerLink="/sesion/create">
+                <i class="bi bi-plus-lg"></i>
+                Nueva Sesión
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped mb-0 align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Miembro</th>
+                        <th>Entrenador</th>
+                        <th>Fecha</th>
+                        <th>Observación</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (sesiones.length > 0) {
+                    @for (sesion of sesiones; track sesion.sesionId) {
+                    <tr>
+                        <td>
+                            {{ sesion.sesionId }}
+                        </td>
+                        <td class="fw-bold">
+                            {{ sesion.miembro }}
+                        </td>
+                        <td>
+                            {{ sesion.entrenador }}
+                        </td>
+                        <td>
+                            <span class="badge bg-info text-dark">
+                                {{ sesion.fechaSesion | date:'dd/MM/yyyy' }}
+                            </span>
+                        </td>
+                        <td>
+                            {{ sesion.observacion }}
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-warning btn-sm" title="Editar"
+                                    [routerLink]="['/sesion/edit', sesion.sesionId]">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" title="Eliminar"
+                                    (click)="eliminar(sesion.sesionId!)">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                    } @else {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            <i class="bi bi-inbox display-6 d-block mb-2"></i>
+                            No hay sesiones registradas.
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
