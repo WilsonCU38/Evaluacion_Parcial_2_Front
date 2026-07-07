@@ -9,12 +9,20 @@ import { EntrenadorEdit } from './entrenador-edit/entrenador-edit';
 import { Sesion } from './sesion/sesion';
 import { SesionCreate } from './sesion-create/sesion-create';
 import { SesionEdit } from './sesion-edit/sesion-edit';
+import { Autenticacion } from './autenticacion/autenticacion';
+import { autenticacionGuard } from './guard/autenticacion.guard';
 
 export const routes: Routes = [
     {
         path: '',
-        component: Menu,
+        component: Autenticacion,
         pathMatch: "full"
+    },
+    {
+        path: 'menu',
+        component: Menu,
+        pathMatch: "full",
+        canActivate: [autenticacionGuard]
     },
     {
         path: 'miembro',
