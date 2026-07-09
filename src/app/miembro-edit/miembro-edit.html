@@ -1,58 +1,61 @@
-<div class="card shadow-sm">
-    <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
-        <h5 class="mb-0">
-            <i class="bi bi-pencil-square me-2"></i>
-            Editar Miembro
-        </h5>
-        <div>
-            <button class="btn btn-outline-dark btn-sm" routerLink="/miembro">
-                <i class="bi bi-arrow-left"></i>
-                Regresar
-            </button>
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+                <i class="bi bi-pencil-square me-2"></i>
+                Editar Miembro
+            </h5>
+            <div>
+                <button class="btn btn-outline-dark btn-sm" routerLink="/miembro">
+                    <i class="bi bi-arrow-left"></i>
+                    Regresar
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="card-body">
-        <form (ngSubmit)="guardar()">
-            <div class="mb-3">
-                <label class="form-label fw-semibold">
-                    Nombre
-                </label>
-                <input type="text" class="form-control" name="nombre" [(ngModel)]="miembro.nombre">
-            </div>
-            <div class="mb-3">
-                <label class="form-label fw-semibold">
-                    Apellido
-                </label>
-                <input type="text" class="form-control" name="apellido" [(ngModel)]="miembro.apellido">
-            </div>
-            <div class="mb-3">
-                <label class="form-label fw-semibold">
-                    Fecha Nacimiento
-                </label>
-                <input type="date" class="form-control" name="fechaNacimiento" [(ngModel)]="miembro.fechaNacimiento">
-            </div>
-            <div class="mb-3">
-                <label class="form-label fw-semibold">
-                    Tipo Membresía
-                </label>
-                <select class="form-select" name="tipoMembresia" [(ngModel)]="miembro.tipoMembresia">
-                    <option value="">Seleccione una membresía</option>
-                    <option value="Mensual">Mensual</option>
-                    <option value="Trimestral">Trimestral</option>
-                    <option value="Semestral">Semestral</option>
-                    <option value="Anual">Anual</option>
-                </select>
-            </div>
-            <div class="d-flex justify-content-end gap-2">
-                <button type="button" class="btn btn-secondary" routerLink="/miembro">
-                    <i class="bi bi-x-circle me-1"></i>
-                    Cancelar
-                </button>
-                <button type="submit" class="btn btn-warning">
-                    <i class="bi bi-floppy me-1"></i>
-                    Actualizar
-                </button>
-            </div>
-        </form>
+        <div class="card-body">
+            <form (ngSubmit)="guardar()">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Nombre
+                    </label>
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="miembro.nombre">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Apellido
+                    </label>
+                    <input type="text" class="form-control" name="apellido" [(ngModel)]="miembro.apellido">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Fecha Nacimiento
+                    </label>
+                    <input type="date" class="form-control" name="fechaNacimiento"
+                        [(ngModel)]="miembro.fechaNacimiento">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Tipo Membresía
+                    </label>
+                    <select class="form-select" name="tipoMembresia" [(ngModel)]="miembro.tipoMembresia">
+                        <option value="">Seleccione una membresía</option>
+                        <option value="Mensual">Mensual</option>
+                        <option value="Trimestral">Trimestral</option>
+                        <option value="Semestral">Semestral</option>
+                        <option value="Anual">Anual</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-secondary" routerLink="/miembro">
+                        <i class="bi bi-x-circle me-1"></i>
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-warning">
+                        <i class="bi bi-floppy me-1"></i>
+                        Actualizar
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

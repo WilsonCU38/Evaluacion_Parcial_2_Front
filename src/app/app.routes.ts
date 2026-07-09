@@ -27,46 +27,55 @@ export const routes: Routes = [
     {
         path: 'miembro',
         component: Miembro,
-        pathMatch: "full"
+        pathMatch: "full",
+        canActivate: [autenticacionGuard]
     }
     ,
     {
         path: 'miembro/create',
         component: MiembroCreate,
-        pathMatch: "full"
+        pathMatch: "full",
+        canActivate: [autenticacionGuard]
     },
     {
         path: 'miembro/edit/:miembroId',
         component: MiembroEdit,
-        pathMatch: "full"
+        pathMatch: "full",
+        canActivate: [autenticacionGuard]
     }, {
         path: 'entrenador',
         component: Entrenador,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [autenticacionGuard]
     },
     {
         path: 'entrenador/create',
         component: EntrenadorCreate,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [autenticacionGuard]
     },
     {
         path: 'entrenador/edit/:entrenadorId',
         component: EntrenadorEdit,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [autenticacionGuard]
     },
     {
         path: 'sesion',
         component: Sesion,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [autenticacionGuard]
     },
     {
         path: 'sesion/create',
         component: SesionCreate,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [autenticacionGuard]
     },
     {
         path: 'sesion/edit/:sesionId',
         component: SesionEdit,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [autenticacionGuard]
     }
 ];
